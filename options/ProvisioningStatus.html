@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="../assets/jquery.min.js"></script>
+    <script src="../assets/bootstrap4/js/popper.min.js"></script>
+    <script src="../assets/bootstrap4/js/bootstrap.min.js"></script>
+    <script src="../assets/bootstrap-table/src/bootstrap-table.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="../ga.js"></script>
+</head>
+<body>
+<div id="container" style="width:100%; height:400px;"></div>
+
+<script>
+
+    $(function () {
+Highcharts.chart('container', {
+  title: {
+    text: 'Provisioning Status Chart'
+  },
+  xAxis: {
+    allowDecimals: false,
+    type: 'datetime',
+    labels: {
+    }
+  },
+  yAxis: {
+    min: 0,
+    title: {
+      text: 'Percentage'
+    },
+    labels: {
+      formatter: function() {
+        return this.value  + ' %';
+      }
+    }
+  },
+  tooltip: {
+ 	pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b> ({point.percentage:.0f}%)<br/>',
+        shared: true
+  },
+  plotOptions: {
+    column: {
+      stacking: 'percent',
+      pointInterval: 24*3600*1000,
+      pointStart: Date.UTC(2015,4,31,0,0,0),
+    },
+    spline: {
+      pointInterval: 24*3600*1000,
+      pointStart: Date.UTC(2015,4,31,0,0,0),
+    }
+  },
+  series: [{
+    type: 'column',
+    name: 'Provisioned',
+    data: [5,3,4,7,2]
+  }, 
+   {
+    type: 'column',
+    name: 'In MM',
+    data: [2,2,3,2,1]
+  },
+   {
+    type: 'column',
+    name: 'Down',
+    data: [3,4,4,2,5]
+  },
+   {
+    type: 'spline',
+    name: 'Healthy Rate',
+    data: [50,40,40,20,50],
+    marker: {
+      lineWidth: 2,
+      lineColor: Highcharts.getOptions().colors[3],
+      fillColor: 'white'
+    }
+  }
+]
+});
+
+    });
+</script>
+</body>
+</html>

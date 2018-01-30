@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script src="../assets/jquery.min.js"></script>
+    <script src="../assets/bootstrap4/js/popper.min.js"></script>
+    <script src="../assets/bootstrap-table/src/bootstrap-table.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="../ga.js"></script>
+
+</head>
+<body>
+<div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <div id="container" style=""></div>
+    </div>
+  </div>
+</div>
+
+<script>
+
+    $(function () {
+Highcharts.chart('container', {
+  title: {
+    text: 'DIT Size Chart'
+  },
+  xAxis: {
+    allowDecimals: false,
+    type: 'datetime',
+    labels: {
+    }
+  },
+  yAxis: {
+    min: 0,
+    title: {
+      text: 'MByte'
+    },
+    labels: {
+      formatter: function() {
+        return this.value * 1000;
+      }
+    }
+  },
+  tooltip: {
+ 	pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b> ({point.percentage:.0f}%)<br/>',
+        shared: true
+  },
+  plotOptions: {
+    line: {
+      pointInterval: 24*3600*1000,
+      pointStart: Date.UTC(2015,4,31,0,0,0)
+    }
+  },
+  series: [{
+    name: 'Maximum',
+    data: [5,3,4,7,2]
+  }, 
+   {
+    name: 'Average',
+    data: [2,2,3,2,1]
+  },
+]
+});
+
+    });
+</script>
+</body>
+</html>

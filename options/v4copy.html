@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Bootstrap Table Examples</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/bootstrap-table/src/bootstrap-table.css">
-    <link rel="stylesheet" href="//rawgit.com/vitalets/x-editable/master/dist/bootstrap3-editable/css/bootstrap-editable.css">
-    <link rel="stylesheet" href="assets/examples.css">
-    <script src="assets/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="ga.js"></script>
+    <title>Boostrap v4.0</title>
+    <link rel="stylesheet" href="../assets/bootstrap4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/bootstrap-table/src/bootstrap-table.css">
+    <link rel="stylesheet" href="../assets/examples.css">
+    <script src="../assets/jquery.min.js"></script>
+    <script src="../assets/bootstrap4/js/popper.min.js"></script>
+    <script src="../assets/bootstrap4/js/bootstrap.min.js"></script>
+    <script src="../assets/bootstrap-table/src/bootstrap-table.js"></script>
+    <script src="../ga.js"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -19,7 +21,7 @@
 </head>
 <body>
 <div class="container">
-    <h1>Bootstrap Table Examples <a href="https://github.com/wenzhixin/bootstrap-table-examples" class="btn btn-primary" role="button" target="_blank">Learn more &raquo;</a></h1>
+    <h1>Boostrap v4.0</h1>
     <div id="toolbar">
         <button id="remove" class="btn btn-danger" disabled>
             <i class="glyphicon glyphicon-remove"></i> Delete
@@ -31,7 +33,6 @@
            data-show-refresh="true"
            data-show-toggle="true"
            data-show-columns="true"
-           data-show-export="true"
            data-detail-view="true"
            data-detail-formatter="detailFormatter"
            data-minimum-count-columns="2"
@@ -72,7 +73,7 @@
                         footerFormatter: totalTextFormatter
                     }, {
                         title: 'Item Detail',
-                        colspan: 5,
+                        colspan: 3,
                         align: 'center'
                     }
                 ],
@@ -81,40 +82,16 @@
                         field: 'name',
                         title: 'Item Name',
                         sortable: true,
-                        editable: true,
                         footerFormatter: totalNameFormatter,
                         align: 'center'
                     }, {
                         field: 'price',
-                        title: 'Item PPPPrice',
+                        title: 'Item Price',
                         sortable: true,
                         align: 'center',
-                        editable: {
-                            type: 'text',
-                            title: 'Item Price',
-                            validate: function (value) {
-                                value = $.trim(value);
-                                if (!value) {
-                                    return 'This field is required';
-                                }
-                                if (!/^\$/.test(value)) {
-                                    return 'This field needs to start width $.'
-                                }
-                                var data = $table.bootstrapTable('getData'),
-                                    index = $(this).parents('tr').data('index');
-                                console.log(data[index]);
-                                return '';
-                            }
-                        },
                         footerFormatter: totalPriceFormatter
                     }, {
-                        field: 'operate2',
-                        title: 'Item Operate',
-                        align: 'center',
-                        events: operateEvents,
-                        formatter: operateFormatter
-                    }, {
-                        field: 'operate1',
+                        field: 'operate',
                         title: 'Item Operate',
                         align: 'center',
                         events: operateEvents,
@@ -185,10 +162,10 @@
     function operateFormatter(value, row, index) {
         return [
             '<a class="like" href="javascript:void(0)" title="Like">',
-            '<i class="glyphicon glyphicon-heart"></i>',
+            '<i class="fa fa-heart-o"></i>',
             '</a>  ',
             '<a class="remove" href="javascript:void(0)" title="Remove">',
-            '<i class="glyphicon glyphicon-remove"></i>',
+            '<i class="fa fa-trash"></i>',
             '</a>'
         ].join('');
     }
@@ -226,66 +203,8 @@
     }
 
     $(function () {
-        var scripts = [
-                location.search.substring(1) || 'assets/bootstrap-table/src/bootstrap-table.js',
-                'assets/bootstrap-table/src/extensions/export/bootstrap-table-export.js',
-                'http://rawgit.com/hhurz/tableExport.jquery.plugin/master/tableExport.js',
-                'assets/bootstrap-table/src/extensions/editable/bootstrap-table-editable.js',
-                'http://rawgit.com/vitalets/x-editable/master/dist/bootstrap3-editable/js/bootstrap-editable.js'
-            ],
-            eachSeries = function (arr, iterator, callback) {
-                callback = callback || function () {};
-                if (!arr.length) {
-                    return callback();
-                }
-                var completed = 0;
-                var iterate = function () {
-                    iterator(arr[completed], function (err) {
-                        if (err) {
-                            callback(err);
-                            callback = function () {};
-                        }
-                        else {
-                            completed += 1;
-                            if (completed >= arr.length) {
-                                callback(null);
-                            }
-                            else {
-                                iterate();
-                            }
-                        }
-                    });
-                };
-                iterate();
-            };
-
-        eachSeries(scripts, getScript, initTable);
+        initTable();
     });
-
-    function getScript(url, callback) {
-        var head = document.getElementsByTagName('head')[0];
-        var script = document.createElement('script');
-        script.src = url;
-
-        var done = false;
-        // Attach handlers for all browsers
-        script.onload = script.onreadystatechange = function() {
-            if (!done && (!this.readyState ||
-                    this.readyState == 'loaded' || this.readyState == 'complete')) {
-                done = true;
-                if (callback)
-                    callback();
-
-                // Handle memory leak in IE
-                script.onload = script.onreadystatechange = null;
-            }
-        };
-
-        head.appendChild(script);
-
-        // We handle everything using the script element injection
-        return undefined;
-    }
 </script>
 </body>
 </html>

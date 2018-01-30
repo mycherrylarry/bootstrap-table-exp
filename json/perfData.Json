@@ -1,0 +1,100 @@
+{
+    "rows": [
+        {
+            "Forest": "namprd00",
+            "Capacity": {
+                "ProvisioningStatus": {
+                    "HealthRate": "80",
+                    "ProvisionedCount": "40",
+                    "InMMCount": "10"
+                },
+                "DITSize": {
+                    "Average": "30",
+                    "Maximum": "70"
+                },
+                "DiskUsageC": {
+                    "FreeSpaceAvg": "90",
+                    "FreeSpaceN": "70"
+                }
+            },
+            "RiskFactors": {
+                "CPU": {
+                    "Average": "70",
+                    "NPercentile": "80"
+                },
+                "Memory": {
+                    "Average": "70",
+                    "NPercentile": "80"
+                },
+                "ATQ" :{
+                    "Average": "70",
+                    "Maximum": "80"
+                }
+            }
+        },
+        {
+            "Forest": "namprd01",
+            "Capacity": {
+                "ProvisioningStatus": {
+                    "HealthRate": "80",
+                    "ProvisionedCount": "40",
+                    "InMMCount": "10"
+                },
+                "DITSize": {
+                    "Average": "30",
+                    "Maximum": "70"
+                },
+                "DiskUsageC": {
+                    "FreeSpaceAvg": "90",
+                    "FreeSpaceN": "70"
+                }
+            },
+            "RiskFactors": {
+                "CPU": {
+                    "Average": "70",
+                    "NPercentile": "80"
+                },
+                "Memory": {
+                    "Average": "70",
+                    "NPercentile": "80"
+                },
+                "ATQ" :{
+                    "Average": "70",
+                    "Maximum": "80"
+                }
+            }
+        },
+        {
+            "Forest": "namprd02",
+            "Capacity": {
+                "ProvisioningStatus": {
+                    "HealthRate": "80",
+                    "ProvisionedCount": "40",
+                    "InMMCount": "10"
+                },
+                "DITSize": {
+                    "Average": "30",
+                    "Maximum": "70"
+                },
+                "DiskUsageC": {
+                    "FreeSpaceAvg": "90",
+                    "FreeSpaceN": "70"
+                }
+            },
+            "RiskFactors": {
+                "CPU": {
+                    "Average": "70",
+                    "NPercentile": "80"
+                },
+                "Memory": {
+                    "Average": "70",
+                    "NPercentile": "80"
+                },
+                "ATQ" :{
+                    "Average": "70",
+                    "Maximum": "80"
+                }
+            }
+        }
+    ]
+}

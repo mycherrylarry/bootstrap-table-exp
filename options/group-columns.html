@@ -9,7 +9,6 @@
     <script src="../assets/jquery.min.js"></script>
     <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="../assets/bootstrap-table/src/bootstrap-table.js"></script>
-    <script src="../ga.js"></script>
 </head>
 <body>
     <div class="container">
@@ -17,7 +16,8 @@
         <p>Use <code>rowspan, colspan</code> options to set the group columns header.</p>
         <table id="table"
                data-toggle="table"
-               data-url="../json/data1.json">
+               data-url="../json/data1.json"
+               data-show-columns="true">
             <thead>
             <tr>
                 <th colspan="2">Item Detail</th>
