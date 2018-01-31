@@ -12,6 +12,7 @@
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="ga.js"></script>
+    <script src="./options/chart.js"></script>
 
 <style type="text/css">
    body { background: gray; } /* Adding !important forces the browser to overwrite the default style applied by Bootstrap */
@@ -49,7 +50,14 @@ Data : (Jan, 2018)
            data-url="./kpiData.Json"
            data-response-handler="responseHandler">
     </table>
+<hr>
+<div class="row">
+  <div class="col-md-12">
+      <div id="allHealthRate" style=""></div>
+  </div>
 </div>
+</div>
+
 
 <script>
     var $table = $('#table'),
@@ -75,7 +83,7 @@ Data : (Jan, 2018)
             // push or splice the selections if you want to save all data selections
         });
         $table.on('expand-row.bs.table', function (e, index, row, $detail) {
-		$detail.html('<p><a href="./options/Charts.html">Status Charts</a></p>');
+		$detail.html('<p><a href="./options/Charts.html">Forest Historical Status Charts</a></p>');
         });
         $table.on('all.bs.table', function (e, name, args) {
             console.log(name, args);
@@ -174,6 +182,7 @@ Data : (Jan, 2018)
 
     $(function () {
         initTable();
+        drawAllCharts();
     });
 
 </script>
