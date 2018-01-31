@@ -1,3 +1,29 @@
+function generateData(count) {
+   var fiftyP = [];
+   var ninetyP = [];
+   var avg=[];
+   for(i = 0; i < count; i++) {
+     fiftyP[i] = Math.floor(Math.random()*400 + 500);
+     ninetyP[i] = Math.floor(Math.random()*300 + 400);
+     avg[i] = Math.floor(Math.random()*150 +  450);
+   }
+
+   return [
+   {
+	name: '50 Percentile',
+	data: fiftyP
+   },
+   {
+	name: '90 Percentile',
+	data: ninetyP
+   },
+   {
+	name: 'Average',
+	data: avg
+   }
+   ];
+}
+
 function drawCharts() {
 
 // DIT SIze
@@ -330,5 +356,256 @@ Highcharts.chart('DiskFreeD', {
             enabled: false
         }
     }]
+});
+
+
+// CPU
+Highcharts.chart('CPU', {
+  title: {
+    text: 'CPU Usage'
+  },
+  xAxis: {
+    allowDecimals: false,
+    type: 'datetime',
+    labels: {
+    }
+  },
+  yAxis: {
+    min: 0,
+    title: {
+      text: 'Percentage'
+    },
+    labels: {
+      formatter: function() {
+        return this.value * 10 + "%";
+      }
+    }
+  },
+  tooltip: {
+ 	pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b> ({point.percentage:.0f}%)<br/>',
+        shared: true
+  },
+  plotOptions: {
+    line: {
+      pointInterval: 24*3600*1000,
+      pointStart: Date.UTC(2015,4,31,0,0,0)
+    }
+  },
+  series: [{
+    name: '50 Percentile',
+    data: [5,3,4,7,2]
+  }, 
+   {
+    name: '90 Percentile',
+    data: [7,3,7,8,2]
+  },
+]
+});
+
+// Memory Free Space
+Highcharts.chart('MemorySpace', {
+  title: {
+    text: 'Memory Free Space (%)'
+  },
+  xAxis: {
+    allowDecimals: false,
+    type: 'datetime',
+    labels: {
+    }
+  },
+  yAxis: {
+    min: 0,
+    title: {
+      text: 'Percentage'
+    },
+    labels: {
+      formatter: function() {
+        return this.value / 10 + "%";
+      }
+    }
+  },
+  tooltip: {
+ 	pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b> ({point.percentage:.0f}%)<br/>',
+        shared: true
+  },
+  plotOptions: {
+    line: {
+      pointInterval: 24*3600*1000,
+      pointStart: Date.UTC(2015,4,31,0,0,0)
+    }
+  },
+  series: generateData(10)
+});
+
+// Memory Free Megabytes
+Highcharts.chart('MemoryMBytes', {
+  title: {
+    text: 'Memory Free MBytes (#)'
+  },
+  xAxis: {
+    allowDecimals: false,
+    type: 'datetime',
+    labels: {
+    }
+  },
+  yAxis: {
+    min: 0,
+    title: {
+      text: 'MByte'
+    },
+    labels: {
+      formatter: function() {
+        return this.value;
+      }
+    }
+  },
+  tooltip: {
+ 	pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b> ({point.percentage:.0f}%)<br/>',
+        shared: true
+  },
+  plotOptions: {
+    line: {
+      pointInterval: 24*3600*1000,
+      pointStart: Date.UTC(2015,4,31,0,0,0)
+    }
+  },
+  series: generateData(10)
+});
+
+// AD Connection
+Highcharts.chart('AdConnection', {
+  title: {
+    text: 'AD Connection Count (Per Hour)'
+  },
+  xAxis: {
+    allowDecimals: false,
+    type: 'datetime',
+    labels: {
+    }
+  },
+  yAxis: {
+    min: 0,
+    title: {
+      text: 'Count'
+    },
+    labels: {
+      formatter: function() {
+        return this.value;
+      }
+    }
+  },
+  tooltip: {
+ 	pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b> ({point.percentage:.0f}%)<br/>',
+        shared: true
+  },
+  plotOptions: {
+    line: {
+      pointInterval: 24*3600*1000,
+      pointStart: Date.UTC(2015,4,31,0,0,0)
+    }
+  },
+  series: generateData(10)
+});
+
+Highcharts.chart('NetworkOutputQ', {
+  title: {
+    text: 'Network Output Queue Length (Per Hour)'
+  },
+  xAxis: {
+    allowDecimals: false,
+    type: 'datetime',
+    labels: {
+    }
+  },
+  yAxis: {
+    min: 0,
+    title: {
+      text: 'Count'
+    },
+    labels: {
+      formatter: function() {
+        return this.value;
+      }
+    }
+  },
+  tooltip: {
+ 	pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b> ({point.percentage:.0f}%)<br/>',
+        shared: true
+  },
+  plotOptions: {
+    line: {
+      pointInterval: 24*3600*1000,
+      pointStart: Date.UTC(2015,4,31,0,0,0)
+    }
+  },
+  series: generateData(10)
+});
+
+Highcharts.chart('NetworkOutputB', {
+  title: {
+    text: 'Network Output Bytes Received (Per Hour)'
+  },
+  xAxis: {
+    allowDecimals: false,
+    type: 'datetime',
+    labels: {
+    }
+  },
+  yAxis: {
+    min: 0,
+    title: {
+      text: 'Count'
+    },
+    labels: {
+      formatter: function() {
+        return this.value;
+      }
+    }
+  },
+  tooltip: {
+ 	pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b> ({point.percentage:.0f}%)<br/>',
+        shared: true
+  },
+  plotOptions: {
+    line: {
+      pointInterval: 24*3600*1000,
+      pointStart: Date.UTC(2015,4,31,0,0,0)
+    }
+  },
+  series: generateData(10)
+});
+
+Highcharts.chart('ATQLength', {
+  title: {
+    text: 'ATQ Length (Per Hour)'
+  },
+  xAxis: {
+    allowDecimals: false,
+    type: 'datetime',
+    labels: {
+    }
+  },
+  yAxis: {
+    min: 0,
+    title: {
+      text: 'Count'
+    },
+    labels: {
+      formatter: function() {
+        return this.value;
+      }
+    }
+  },
+  tooltip: {
+ 	pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b> ({point.percentage:.0f}%)<br/>',
+        shared: true
+  },
+  plotOptions: {
+    line: {
+      pointInterval: 24*3600*1000,
+      pointStart: Date.UTC(2015,4,31,0,0,0)
+    }
+  },
+  series: generateData(10)
 });
 }

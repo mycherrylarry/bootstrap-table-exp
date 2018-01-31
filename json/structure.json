@@ -1,0 +1,86 @@
+[
+	{
+		"name": "Forest",
+		"alias": "Forest",
+		"children": []
+	},
+	{
+		"name": "Capacity",
+		"alias": "Capacity",
+		"children": [
+			{
+				"name": "Provisioning Status",
+				"alias": "ProvisioningStatus",
+				"children": [
+					{
+						"name": "Health Rate (%)",
+						"alias": "HealthRate",
+						"children": []
+					},
+					{
+						"name": "Provisioned Count (#)",
+						"alias": "ProvisionedCount",
+						"children": []
+					},
+					{
+						"name": "In MM Count (%)",
+						"alias": "InMMCount",
+						"children": []
+					}
+				]
+			},
+			{
+				"name": "Dit Size",
+				"alias": "DitSize",
+				"children": [
+					{
+						"name": "Average",
+						"alias": "Average",
+						"children": []
+					},
+					{
+						"name": "50 Percentile",
+						"alias": "FPercentile",
+						"children": []
+					},
+					{
+						"name": "90 Percentile",
+						"alias": "NPercentile",
+						"children": []
+					}
+				]
+			},
+			{
+				"name": "Disk Usage (C:)",
+				"alias": "DiskUsageC",
+				"children": [
+					{
+						"name": "Max",
+						"alias": "Max",
+						"children": []
+					},
+					{
+						"name": "Min",
+						"alias": "Min",
+						"children": []
+					},
+					{
+						"name": "50 Percentile",
+						"alias": "FPercentile",
+						"children": []
+					},
+					{
+						"name": "90 Percentile",
+						"alias": "NPercentile",
+						"children": []
+					}
+				]
+			}
+		]
+	},
+	{
+		"name": "Risk Factors",
+		"alias": "RiskFactors",
+		"children": []
+	}
+]
