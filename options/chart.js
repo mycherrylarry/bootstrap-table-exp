@@ -126,12 +126,12 @@ function drawCharts() {
       {
        type: 'column',
        name: 'Down',
-       data: [3,4,4,2,5]
+       data: [3,4,3,1,7]
      },
       {
        type: 'spline',
        name: 'Healthy Rate',
-       data: [50,40,40,20,50],
+       data: [50,30,40,70,20],
        marker: {
          lineWidth: 2,
          lineColor: Highcharts.getOptions().colors[3],
