@@ -3,9 +3,17 @@ function generateData(count) {
    var ninetyP = [];
    var avg=[];
    for(i = 0; i < count; i++) {
-     fiftyP[i] = Math.floor(Math.random()*Math.random()*100 + 500);
-     ninetyP[i] = Math.floor(Math.random()*200 + 400);
-     avg[i] = Math.floor(Math.random()*50 +  450);
+     	if(i == 6)
+     	{
+     		fiftyP[i] = Math.floor(Math.random()*Math.random()*100 + 1500);
+     		ninetyP[i] = Math.floor(Math.random()*200 + 800);
+     		avg[i] = Math.floor(Math.random()*50 +  750);
+     	} else 
+	{
+     		fiftyP[i] = Math.floor(Math.random()*Math.random()*100 + 500);
+     		ninetyP[i] = Math.floor(Math.random()*200 + 400);
+     		avg[i] = Math.floor(Math.random()*50 +  450);
+	}
    }
 
    return [
@@ -394,11 +402,11 @@ function drawCharts() {
      },
      series: [{
        name: '50 Percentile',
-       data: [5,3,4,7,2]
+       data: [5,3,4,7,2,7,3,2,1,2]
      }, 
       {
        name: '90 Percentile',
-       data: [7,3,7,8,2]
+       data: [7,3,7,8,2,9,9,7,2,5]
      },
    ]
    });
