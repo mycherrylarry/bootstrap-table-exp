@@ -702,27 +702,63 @@ Highcharts.chart('sku', {
         }
     },
     series: [{
-        name: 'Brands',
+        name: 'Count',
         colorByPoint: true,
         data: [{
             name: 'SKU-Type-1',
-            y: 56.33
+            y: 10,
+            drilldown: 'skutype1'
         }, {
             name: 'SKU-Type-2',
-            y: 24.03
+            drilldown: 'SKU-Type-2',
+            y: 125
         }, {
             name: 'SKU-Type-3',
-            y: 10.38
-        }, {
-            name: 'SKU-Type-4',
-            y: 4.77
-        }, {
-            name: 'SKU-Type-5',
-            y: 0.91
-        }, {
-            name: 'SKU-Type-6',
-            y: 0.2
+            drilldown: 'SKU-Type-3',
+            y: 50
         }]
-    }]
+    }],
+    drilldown: {
+        series: [{
+            name: 'SKU-Type-1',
+            id: 'skutype1',
+            data: [
+                ['v11.0', 24.13],
+                ['v8.0', 17.2],
+                ['v9.0', 8.11],
+                ['v10.0', 5.33],
+                ['v6.0', 1.06],
+                ['v7.0', 0.5]
+            ]
+        }, {
+            name: 'SKU-Type-2',
+            id: 'SKU-Type-2',
+            data: [
+                ['v40.0', 5],
+                ['v41.0', 4.32],
+                ['v42.0', 3.68],
+                ['v39.0', 2.96],
+                ['v36.0', 2.53],
+                ['v43.0', 1.45],
+                ['v31.0', 1.24],
+                ['v35.0', 0.85],
+                ['v38.0', 0.6],
+                ['v32.0', 0.55],
+                ['v37.0', 0.38],
+                ['v33.0', 0.19],
+                ['v34.0', 0.14],
+                ['v30.0', 0.14]
+            ]
+        }, {
+            name: 'SKU-Type-3',
+            id: 'SKU-Type-3',
+            data: [
+                ['v12.x', 0.34],
+                ['v28', 0.24],
+                ['v27', 0.17],
+                ['v29', 0.16]
+            ]
+        }]
+    }
 });
 }
