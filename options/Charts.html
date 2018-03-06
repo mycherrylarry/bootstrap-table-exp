@@ -23,72 +23,132 @@
 <h1>Forest Status</h1> Time Range: [Jun, XX]
 	<h4>Scope: namprd00.prod.outlook.com</h4>
 	<hr>
-	<h2>Capacity</h2>
-	<hr>
-
-<div class="row">
-  <div class="col-sm-6 col-md-6">
-      <div id="Provisioning" style=""></div>
-  </div>
-  <div class="col-sm-6 col-md-6">
-      <div id="DitSize" style=""></div>
-  </div>
-</div>
-<hr>
-<div class="row">
-  <div class="col-sm-6 col-md-6">
-      <div id="SKU" style=""></div>
-  </div>
-  <div class="col-sm-6 col-md-6">
-      <div id="DiskFreeC" style=""></div>
-  </div>
-</div>
-<hr>
-<div class="row">
-  <div class="col-sm-6 col-md-6">
-      <div id="DiskFreeD" style=""></div>
-  </div>
-</div>
 
 <h2>Risk Factors</h2>
-<label><a href="#CPU">CPU</a></label> 
-<label><a href="#AdConnection"> | AD Connection</a></label> 
-<label><a href="#MemorySpace"> | Free Memory Space (%)</a></label> 
-<label><a href="#MemoryMBytes"> | Free Memory MBytes (#)</a></label> 
-<label><a href="#NetworkOutputQ"> | Network Output Queue Length</a></label> 
-<label><a href="#NetworkOutputB"> | Network Output Queue Received Bytes</a></label> 
-<label><a href="#ATQLength"> | ATQ</a></label> 
 <hr>
-<div class="row">
-  <div class="col-sm-12 col-md-12">
-      <div id="CPU" style="height: 300px"></div>
-  </div>
-  <div class="col-sm-12 col-md-12">
-      <div id="AdConnection" style="height: 300px"></div>
-  </div>
-</div>
-<div class="row">
-  <div class="col-sm-12 col-md-12">
-      <div id="MemorySpace" style="height: 300px"></div>
-  </div>
-  <div class="col-sm-12 col-md-12">
-      <div id="MemoryMBytes" style="height: 300px"></div>
-  </div>
-</div>
-<div class="row">
-  <div class="col-sm-12 col-md-12">
-      <div id="NetworkOutputQ" style="height: 300px"></div>
-  </div>
-  <div class="col-sm-12 col-md-12">
-      <div id="NetworkOutputB" style="height: 300px"></div>
-  </div>
-</div>
-<div class="row">
-  <div class="col-sm-12 col-md-12">
-      <div id="ATQLength" style="height: 300px"></div>
-  </div>
-</div>
 
+<div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+          	        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">CPU</a>
+                    </h4>
+                </div>
+                <div id="collapse1" class="panel-collapse collapse in">
+                    <div id="CPU" style="height: 300px"></div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+          	        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Memory</a>
+                    </h4>
+                </div>
+                <div id="collapse2" class="panel-collapse collapse">
+                    <div id="Memory" style="height: 300px"></div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+          	        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">LDAP New Connections</a>
+                    </h4>
+                </div>
+                <div id="collapse3" class="panel-collapse collapse">
+                    <div id="LdapNewConnections" style="height: 300px"></div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+          	        <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">LDAP Searches</a>
+                    </h4>
+                </div>
+                <div id="collapse4" class="panel-collapse collapse">
+                    <div id="LdapSearches" style="height: 300px"></div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+          	        <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">LDAP Writes</a>
+                    </h4>
+                </div>
+                <div id="collapse5" class="panel-collapse collapse">
+                    <div id="LdapWrites" style="height: 300px"></div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+          	        <a data-toggle="collapse" data-parent="#accordion" href="#collapse6">DS Search Sub-Operations / Second</a>
+                    </h4>
+                </div>
+                <div id="collapse6" class="panel-collapse collapse">
+                    <div id="DsSearch" style="height: 300px"></div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+          	        <a data-toggle="collapse" data-parent="#accordion" href="#collapse7">Network Current Bandwidth</a>
+                    </h4>
+                </div>
+                <div id="collapse7" class="panel-collapse collapse">
+            	    <div id="NetworkCurrentBandwidth" style="height: 300px"></div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+          	        <a data-toggle="collapse" data-parent="#accordion" href="#collapse8">ATQ Outstanding Queued Requests</a>
+                    </h4>
+                </div>
+                <div id="collapse8" class="panel-collapse collapse">
+            	    <div id="AtqOutstandingQueuedRequests" style="height: 300px"></div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+          	        <a data-toggle="collapse" data-parent="#accordion" href="#collapse9">Disk Free Space</a>
+                    </h4>
+                </div>
+                <div id="collapse9" class="panel-collapse collapse">
+            	    <div id="DiskFreeSpace" style="height: 300px"></div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+          	        <a data-toggle="collapse" data-parent="#accordion" href="#collapse10">Disk Reads / Second</a>
+                    </h4>
+                </div>
+                <div id="collapse10" class="panel-collapse collapse">
+            	    <div id="DiskReads" style="height: 300px"></div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+          	        <a data-toggle="collapse" data-parent="#accordion" href="#collapse11">Disk Writes / Second</a>
+                    </h4>
+                </div>
+                <div id="collapse11" class="panel-collapse collapse">
+            	    <div id="DiskWrites" style="height: 300px"></div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+          	        <a data-toggle="collapse" data-parent="#accordion" href="#collapse12">Inbound Replication</a>
+                    </h4>
+                </div>
+                <div id="collapse12" class="panel-collapse collapse">
+            	    <div id="InboundReplicate" style="height: 300px"></div>
+                </div>
+            </div>
+        </div>
 </div>
 
 <script>
