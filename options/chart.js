@@ -15,10 +15,6 @@ function generateData(count) {
 
    return [
    {
-	name: '50 Percentile',
-	data: fiftyP
-   },
-   {
 	name: 'Maximum',
 	data: max
    }
@@ -61,12 +57,9 @@ function drawCharts() {
          pointStart: Date.UTC(2015,4,31,0,0,0)
        }
      },
-     series: [{
-       name: '50 Percentile',
-       data: [5,3,4,7,2,7,3,2,1,2]
-     }, 
+     series: [
       {
-       name: '90 Percentile',
+       name: 'Maximum',
        data: [7,3,7,8,2,9,9,7,2,5]
      },
    ]
