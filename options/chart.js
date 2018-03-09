@@ -62,7 +62,7 @@ function drawCharts() {
        name: 'Maximum',
        data: [7,3,7,8,2,9,9,7,2,5]
      },
-   ]
+     ]
    });
    
    // Memory Free Space
@@ -104,7 +104,7 @@ function drawCharts() {
    // Ldap new connections
    Highcharts.chart('LdapNewConnections', {
      title: {
-       text: 'LDAP New Connections / second'
+       text: 'AD Connections'
      },
      xAxis: {
        allowDecimals: false,
@@ -133,7 +133,20 @@ function drawCharts() {
          pointStart: Date.UTC(2015,4,31,0,0,0)
        }
      },
-     series: generateData(sample)
+     series: [
+      {
+       name: 'LDAP New Connections',
+       data: [7,3,7,8,2,9,9,7,2,5]
+      },
+      {
+       name: 'LDAP Searches',
+       data: [6,2,6,8,3,19,9,8,1,3]
+      },
+      {
+       name: 'LDAP Writes',
+       data: [9,13,27,18,12,19,19,17,12,15]
+      },
+     ]
    });
 
    Highcharts.chart('LdapSearches', {
